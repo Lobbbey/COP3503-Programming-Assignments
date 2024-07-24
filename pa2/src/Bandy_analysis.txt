@@ -1,0 +1,7 @@
+The time complexity of the backtracking code used O(N^2XL) where N is the length
+of the matrix holding the letters and L is the length of the word that needs to be
+fond. Since a starting point is unknown the letter matrix needs to be
+traversed in order to find a spot to start testing if the word is in the
+letter matrix. After a starting point is found, the wordToFind array needs to be
+traversed alongside the letter matrix in order to find the word. With both
+of these conditions the code runs at time complexity O(N^2XL).
