@@ -30,6 +30,17 @@ public class Main{
             row2[i] = scanIn.nextInt();
         }
 
+        //Create then initilize the completed rows
+        int[] compR1 = new int[numStudents];
+        int[] compR2 = new int[numStudents];
+
+        compR1[0] = row1[0];
+        compR2[0] = row2[0];
+      
+        for(int i = 1; i < numStudents; i++){
+            compR1[i] = Math.max(compR1[i -1], compR2[i] + row1[i]);
+            compR2[i] = Math.max(compR2[i -1], compR1[i] + row2[i]);                       
+        }
         
 
         scanIn.close();
