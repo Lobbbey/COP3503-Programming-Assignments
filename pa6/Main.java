@@ -8,12 +8,10 @@ import java.util.*;
 
 public class Main{
 
-    //Global Declarations
-    public static int numStudents, totalProb = 0;
-
     public static void main(String[] args){
         //Declarations
         Scanner scanIn = new Scanner(System.in);
+        int numStudents, totalProb = 0;
 
         numStudents = scanIn.nextInt();//Get number of students
 
@@ -21,28 +19,30 @@ public class Main{
         int[] row1 = new int[numStudents];
         int[] row2 = new int[numStudents];
 
-        //Collect input for each row
+        //Collect input for each row in row1
         for(int i = 0; i < numStudents; i++){
             row1[i] = scanIn.nextInt();
         }
 
+        //Collect input for each row in row2
         for(int i = 0; i < numStudents; i++){
             row2[i] = scanIn.nextInt();
         }
 
         //Create then initilize the completed rows
-        int[] compR1 = new int[numStudents];
-        int[] compR2 = new int[numStudents];
-
-        compR1[0] = row1[0];
-        compR2[0] = row2[0];
-      
+        int[][] compRows = new int[2][numStudents];
+        compRows[0][0] = row1[0];
+        compRows[1][0] = row2[0]; 
+     
+        //Find the max number of problems
         for(int i = 1; i < numStudents; i++){
-            compR1[i] = Math.max(compR1[i -1], compR2[i] + row1[i]);
-            compR2[i] = Math.max(compR2[i -1], compR1[i] + row2[i]);                       
+            compRows[0][i] = Integer.max(compRows[0][i-1], compRows[1][i - 1] + row1[i]);         
+            compRows[1][i] = Integer.max(compRows[1][i-1], compRows[0][i - 1] + row2[i]);         
         }
-        
 
+        //Last max check then print result
+        totalProb = Integer.max(compRows[0][numStudents - 1], compRows[1][numStudents - 1]);
+        System.out.println(totalProb);
         scanIn.close();
     }    
 }
