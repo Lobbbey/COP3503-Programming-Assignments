@@ -6,7 +6,8 @@
 //Imports
 import java.util.*;
 
-public static Main{
+public class Main{
+
 
     public static void main(String[] args){
         
