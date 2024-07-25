@@ -1,0 +1,9 @@
+For the testing strategy I began with setting up readin the input and displaying
+the solution. From there I created the loop to begin and find the max of the 
+problems solved. I changed the logic around when doing the max comparisions,
+always checking compRows[0][i - 1] to check what came before. I continued to 
+change the second comparison to ensrure I was comparing the correct variables
+to get the desired amount. With the first test case I wanted to keep the numbers
+simple but have a large number at the end to see how it would skew the results,
+the correct output for this case is 61. For the second test case I wanted to check
+how the program would handle a case with a minimal amount of numbers, the correct output is 12.
